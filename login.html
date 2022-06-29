@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yard Sale | Email Sent</title>
+  <title>Yard Sale | Login</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,8 +39,7 @@
 
     .form-container {
       display: grid;
-      justify-items: center;
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto%;
       max-width: 300px;
     }
     .logo {
@@ -65,39 +64,32 @@
       text-align: center;
     }
 
-    .email-image {
+    .form {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+     }
 
-      width: 132px;
-      height: 132px;
-
-      background: var(--text-input-field);
-
-      border-radius: 50%;
-      margin:0 0 24px 0; 
-    }
-
-    .email-image img{
-      width: 80px;
-    }
-
-    .resend {
+    .label {
       font-size: var(--sm);
-    }
-    .resend span{
-      color: var(--very-light-pink);
-      font-size: var(--sm);
+      font-weight: bold;
+      margin: 0 0 4px 0;
     }
 
-    .resend a {
-      color: var(--hospital-green);
+    .input {
+      height: 32px;
 
-      text-decoration: none;
+      background-color: var(--text-input-field);
+      
+      border: none;
+      border-radius: 8px;
+
+      margin: 0 0 12px 0;
+      padding: 6px;
+
+      font-size: var(--md);
     }
 
-    .primary-button{
+    .primary-button {
       width: 100%;
       height: 50px;
 
@@ -113,29 +105,67 @@
       background-color: var(--hospital-green);
     }
 
+    .secondary-button.input-email {
+      width: 100%;
+      height: 50px;
+
+      font-size: var(--md);
+      font-weight: bold;
+
+      cursor: pointer;
+
+      border: 1px solid var(--hospital-green);
+      border-radius: 8px;
+      
+      color: var(--hospital-green);
+      background-color: transparent;
+      bac
+    }
+
     .login-button {
       margin: 14px 0 30px 0;
     }
+
+    .resend {
+      font-size: var(--sm);
+    }
+
+    .resend a {
+      color: var(--hospital-green);
+
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
     
+
     @media (max-width: 640px ) {
       .logo {
         display: block;
       }
+
+      .form-container {
+        grid-template-rows: auto 1fr 50%;
+      }
+      .signup-button {
+        align-self: end;
+      }
     }
-
-
   </style>
 </head>
 <body>
   <div class="login">
     <div class="form-container form-container__title">
       <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo form-container__logo">
-      <h1 class="title form-container__title">Email has been sent!</h1>
-      <p class="subtitle form-container__subtitle">Please check your inbox for instructions on how to reset the password</p>
-      <div class="email-image"><img src="./icons/email.svg" alt="Email"></div>
-      <input type="submit" value="Login" class="primary primary-button login-button form-container__button">
-      <p class="resend subtitle form-container__subtitle"><span class="bold">Didn't recive the email?</span> <a href="">Resend</a> </p>
-    
+      <form action="/" class="form form-container__form">
+
+        <label for="username">Email address</label>
+        <input type="text" placeholder="email@gmail.com" id="username" class="input input-username form-container__input">
+        <label for="password" type="password">Password</label>
+        <input type="password" placeholder="**********" id="password" name="password" class="input input-password form-container__input">
+        <input type="submit" value="Login" class="primary primary-button login-button form-container__button">
+        <p class="resend subtitle form-container__subtitle"><a href="">Forgot my password</a> </p>
+      </form>
+        <input type="submit" value="Sign up" class="signup-button secondary secondary-button login-button form-container__button input-email">
     </div>
   </div>
 </body>
